@@ -39,7 +39,7 @@ getEpochInfo = rpcWebRequest "getEpochInfo"
 
 getConfirmedBlock :: Word64 -> SolanaRpcM IO (Either Value (Maybe SolanaCommittedBlock))
 getConfirmedBlock slot = rpcWebRequest'' @_ @(Maybe SolanaCommittedBlock) "getConfirmedBlock" $ Just [slot]
-
+-- Adding Confirmed Blocks
 getConfirmedBlocks :: Word64 -> Word64 -> SolanaRpcM IO [Word64]
 getConfirmedBlocks startSlot endSlot = rpcWebRequest' "getConfirmedBlocks" $ Just (startSlot, endSlot)
 
